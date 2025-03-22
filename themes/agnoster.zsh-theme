@@ -313,9 +313,21 @@ prompt_dir() {
 }
 
 # Virtualenv: current working virtualenv
+prompt_nvirtualenv() {
+  if [[ $VIRTUAL_ENV = "" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)%n@%m"
+  fi
+}
+
 prompt_virtualenv() {
-  if [[ -n "$VIRTUAL_ENV" && -n "$VIRTUAL_ENV_DISABLE_PROMPT" ]]; then
-    prompt_segment "$AGNOSTER_VENV_BG" "$AGNOSTER_VENV_FG" "(${VIRTUAL_ENV:t:gs/%/%%})"
+  if [[ -n "$VIRTUAL_ENV" ]]; then
+    prompt_segment yellow black "\uf069 ${VIRTUAL_ENV:t:gs/%/%%} \uf101"
+  fi
+}
+
+prompt_virtualenv_icon() {
+  if [[ -n "$VIRTUAL_ENV" ]]; then
+    prompt_segment black yellow "\ue73c \uf101"
   fi
 }
 
@@ -354,13 +366,15 @@ prompt_aws() {
 build_prompt() {
   RETVAL=$?
   prompt_status
+  prompt_nvirtualenv
   prompt_virtualenv
+  prompt_virtualenv_icon
   prompt_aws
-  prompt_context
-  prompt_dir
+  #prompt_context
   prompt_git
   prompt_bzr
   prompt_hg
+  prompt_dir
   prompt_end
 }
 
