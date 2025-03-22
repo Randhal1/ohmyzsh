@@ -67,7 +67,7 @@ Twitter), and join us on [Discord](https://discord.gg/ohmyzsh).
 
 ## Randhal Modification for environment improvement.
 
-<p align="center"><img src="https://www.facebook.com/100002807558728/posts/8569959199774247/?mibextid=rS40aB7S9Ucbxw6v" alt="venv mod:"></p>
+<p align="center"><img src="mod.jpg" alt="venv mod:"></p>
 
 ### Operating System Compatibility
 
